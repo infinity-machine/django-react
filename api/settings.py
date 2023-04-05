@@ -147,12 +147,11 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = 'static/'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, './client/build/static')
 ]
-print(STATICFILES_DIRS)
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Test Runner Config
 class HerokuDiscoverRunner(DiscoverRunner):

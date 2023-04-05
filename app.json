@@ -1,8 +1,8 @@
 {
-  "name": "Start on Heroku: Python",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "name": "Django-React",
+  "description": "A Django application with a React frontend",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
+  "repository": "https://github.com/infinity-machine/django-react",
   "keywords": ["python", "django" ],
   "addons": [ "heroku-postgresql" ],
   "env": {
