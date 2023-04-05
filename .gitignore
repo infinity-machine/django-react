@@ -50,3 +50,6 @@ env/
 # Secrets
 secrets.json
 .env
+
+# NODE
+node_modules
