@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import dj_database_url
+from django.test.runner import DiscoverRunner
 from pathlib import Path
 import os
 from dotenv import load_dotenv
@@ -152,6 +153,15 @@ STATICFILES_DIRS = [
 print(STATICFILES_DIRS)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Test Runner Config
+class HerokuDiscoverRunner(DiscoverRunner):
+    """Test Runner for Heroku CI, which provides a database for you.
+    This requires you to set the TEST database (done for you by settings().)"""
+
+    def setup_databases(self, **kwargs):
+        self.keepdb = True
+        return super(HerokuDiscoverRunner, self).setup_databases(**kwargs)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
