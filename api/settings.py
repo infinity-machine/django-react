@@ -152,7 +152,7 @@ STATIC_URL = 'static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, './client/build/static')
+    os.path.join(BASE_DIR, 'client/build/static')
 ]
 
 # Test Runner Config
