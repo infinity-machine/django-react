@@ -38,8 +38,8 @@ if IS_HEROKU:
 else: DEBUG = True
 
 if IS_HEROKU:
-    ALLOWED_HOSTS = ['*']
-else: ALLOWED_HOSTS = ['localhost']
+    ALLOWED_HOSTS = ['django-react-cjc.herokuapp.com']
+else: ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -111,7 +111,7 @@ if IS_HEROKU:
     # Enable test database if found in CI environment.
     if "CI" in os.environ:
         DATABASES["default"]["TEST"] = DATABASES["default"]
-        
+
 else: DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
