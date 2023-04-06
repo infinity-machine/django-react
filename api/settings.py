@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import dj_database_url
-from django.test.runner import DiscoverRunner
+# from django.test.runner import DiscoverRunner
 from pathlib import Path
 import os
 
@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'api',
     'client_config',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'client'
 ]
 
 MIDDLEWARE = [
@@ -156,15 +157,18 @@ STATICFILES_DIRS = [
 ]
 
 # Test Runner Config
-class HerokuDiscoverRunner(DiscoverRunner):
-    """Test Runner for Heroku CI, which provides a database for you.
-    This requires you to set the TEST database (done for you by settings().)"""
+# class HerokuDiscoverRunner(DiscoverRunner):
+#     """Test Runner for Heroku CI, which provides a database for you.
+#     This requires you to set the TEST database (done for you by settings().)"""
 
-    def setup_databases(self, **kwargs):
-        self.keepdb = True
-        return super(HerokuDiscoverRunner, self).setup_databases(**kwargs)
+#     def setup_databases(self, **kwargs):
+#         self.keepdb = True
+#         return super(HerokuDiscoverRunner, self).setup_databases(**kwargs)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_on_heroku
+django_on_heroku.settings(locals())
