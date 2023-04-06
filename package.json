@@ -1,0 +1,20 @@
+{
+  "name": "django-react",
+  "version": "1.0.0",
+  "description": "Test CRUD application, using React, Django, and Django Rest Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinity-machine/django-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infinity-machine/django-react/issues"
+  },
+  "homepage": "https://github.com/infinity-machine/django-react#readme"
+}
