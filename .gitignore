@@ -48,6 +48,7 @@ env/
 !/static/.gitkeep
 
 #staticfiles
+node_modules
 
 # Secrets
 secrets.json
