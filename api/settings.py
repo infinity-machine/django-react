@@ -104,11 +104,11 @@ if IS_HEROKU:
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['NAME'],
-        'USER': os.environ['USER'],
-        'PASSWORD': os.environ['PASSWORD'],
-        'HOST': os.environ['HOST'],
-        'PORT': os.environ['PORT']
+        # 'NAME': os.environ['NAME'],
+        # 'USER': os.environ['USER'],
+        # 'PASSWORD': os.environ['PASSWORD'],
+        # 'HOST': os.environ['HOST'],
+        # 'PORT': os.environ['PORT']
         }
     }
     db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
