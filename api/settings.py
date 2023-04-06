@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     'client_config',
     'rest_framework',
     'corsheaders',
-    'client'
 ]
 
 MIDDLEWARE = [
