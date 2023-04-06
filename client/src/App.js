@@ -11,7 +11,7 @@ function App() {
 
   const handleDelete = async(e) => {
     e.preventDefault();
-    axios.delete(`http://localhost:8000/delete/${e.target.dataset.id}/`)
+    axios.delete(`/delete/${e.target.dataset.id}/`)
       .then(() => fetchData());
   };
 
@@ -19,7 +19,7 @@ function App() {
     const data = {
       name: boi_name
     };
-    axios.post('http://localhost:8000/api/', data)
+    axios.post('/api/', data)
       .then(() => fetchData());
   };
 
@@ -30,7 +30,7 @@ function App() {
   };
   
   const fetchData = async () => {
-    const response = await axios.get('http://localhost:8000/api/');
+    const response = await axios.get('/api/');
     const data = response.data;
     setData(data)
   };
