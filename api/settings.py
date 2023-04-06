@@ -37,7 +37,7 @@ if not IS_HEROKU:
     DEBUG = True
 
 if IS_HEROKU:
-    ALLOWED_HOSTS = ['https://django-react-cjc.herokuapp.com/']
+    ALLOWED_HOSTS = ['django-react-cjc.herokuapp.com/']
 ALLOWED_HOSTS = []
 
 # Application definition
