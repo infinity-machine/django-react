@@ -34,9 +34,7 @@ function App() {
   
   const fetchData = async () => {
     const response = await axios.get('/api/');
-    console.log(`response: ${response}`)
     const data = response.data;
-    console.log(`response data: ${data}`)
     setData(data)
   };
 

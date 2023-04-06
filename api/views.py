@@ -10,13 +10,14 @@ from django.shortcuts import render
 
 class UsersTable(APIView):
     def get(self, request):
-        print(f'request: {request}')
-        print(f'request.data: {request.data}')
         userObj = UserModel.objects.all()
         serialized = UserSerializer(userObj, many = True)
+        print(serialized.data)
         return Response(serialized.data)
     
     def post(self, request):
+        print(f'post request: {request}')
+        print(f'post request data: {request.data}')
         serializeObj = UserSerializer(data = request.data)
         if serializeObj.is_valid():
             serializeObj.save()
@@ -25,7 +26,8 @@ class UsersTable(APIView):
 
 class UsersDelete(APIView):
     def delete(self, request, pk):
-        print(request)
+        print(f'delete request: {request}')
+        print(f'delete request data: {request.data}')
         userObj = UserModel.objects.get(pk=pk)
         try:
             userObj = UserModel.objects.get(pk = pk)

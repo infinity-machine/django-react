@@ -1,1 +1,0 @@
-http://django-react-cjc.herokuapp.com/api
