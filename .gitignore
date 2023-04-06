@@ -47,7 +47,7 @@ env/
 /static/
 !/static/.gitkeep
 
-staticfiles
+#staticfiles
 
 # Secrets
 secrets.json
