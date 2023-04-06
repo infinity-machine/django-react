@@ -28,18 +28,18 @@ if not IS_HEROKU:
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-if 'SECRET_KEY' in os.environ:
+if IS_HEROKU:
     SECRET_KEY = os.environ["SECRET_KEY"]
 else: SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if not IS_HEROKU:
-    DEBUG = True
-else: DEBUG = False
+if IS_HEROKU:
+    DEBUG = False
+else: DEBUG = True
 
 if IS_HEROKU:
     ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = []
+else: ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -94,8 +94,6 @@ WSGI_APPLICATION = 'api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-MAX_CONN_AGE = 600
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -103,7 +101,8 @@ DATABASES = {
     }
 }
 
-if 'DATABASE_URL' in os.environ:
+if IS_HEROKU:
+    MAX_CONN_AGE = 600
     # Configure Django for DATABASE_URL environment variable.
     DATABASES["default"] = dj_database_url.config(
         conn_max_age=MAX_CONN_AGE, ssl_require=True)
