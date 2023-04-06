@@ -33,9 +33,10 @@ if IS_HEROKU:
 else: SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if IS_HEROKU:
-    DEBUG = False
-else: DEBUG = True
+# if IS_HEROKU:
+#     DEBUG = False
+# else: DEBUG = True
+DEBUG = True
 
 if IS_HEROKU:
     ALLOWED_HOSTS = ['django-react-cjc.herokuapp.com']
