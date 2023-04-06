@@ -4,7 +4,12 @@
   "image": "heroku/python",
   "repository": "https://github.com/infinity-machine/django-react",
   "keywords": ["python", "django" ],
-  "addons": [ "heroku-postgresql" ],
+  "addons": [{
+    "plan": "heroku-postgresql",
+    "options": {
+      "version": "15.2"
+    }
+  }],
   "env": {
     "SECRET_KEY": {
       "description": "The secret key for the Django application.",
