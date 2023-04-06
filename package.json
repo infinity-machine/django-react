@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "cd ./client && npm install",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "install2": "pip install -r requirements.txt"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/infinity-machine/django-react/issues"
   },
-  "homepage": "https://github.com/infinity-machine/django-react#readme"
+  "homepage": "https://github.com/infinity-machine/django-react#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
 }
