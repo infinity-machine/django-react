@@ -26,7 +26,6 @@ class UsersDelete(APIView):
         userObj = UserModel.objects.get(pk=pk)
         try:
             userObj = UserModel.objects.get(pk = pk)
-            print(userObj)
             userObj.delete()
         except:
             return Response('BOI NOT FOUND IN DATABASE')
