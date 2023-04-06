@@ -10,6 +10,8 @@ from django.shortcuts import render
 
 class UsersTable(APIView):
     def get(self, request):
+        print(f'request: {request}')
+        print(f'request.data: {request.data}')
         userObj = UserModel.objects.all()
         serialized = UserSerializer(userObj, many = True)
         return Response(serialized.data)
