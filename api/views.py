@@ -19,6 +19,7 @@ class UsersTable(APIView):
         print(f'post request: {request}')
         print(f'post request data: {request.data}')
         serializeObj = UserSerializer(data = request.data)
+        print(serializeObj)
         if serializeObj.is_valid():
             serializeObj.save()
             return Response(200)
