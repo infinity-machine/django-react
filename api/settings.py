@@ -39,7 +39,7 @@ else: DEBUG = True
 
 if IS_HEROKU:
     ALLOWED_HOSTS = ['*']
-else: ALLOWED_HOSTS = []
+else: ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'api',
     'client_config',
     'rest_framework',
-    'corsheaders',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -93,7 +93,6 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -102,7 +101,16 @@ DATABASES = {
 }
 
 if IS_HEROKU:
-    MAX_CONN_AGE = 600
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['NAME'],
+        'USER': os.environ['USER'],
+        'PASSWORD': os.environ['PASSWORD'],
+        'HOST': os.environ['HOST'],
+        'PORT': os.environ['PORT']
+        }
+    }
     db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
     DATABASES['default'].update(db_from_env)  
     # Configure Django for DATABASE_URL environment variable.
@@ -110,7 +118,6 @@ if IS_HEROKU:
     # Enable test database if found in CI environment.
     if "CI" in os.environ:
         DATABASES["default"]["TEST"] = DATABASES["default"]
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

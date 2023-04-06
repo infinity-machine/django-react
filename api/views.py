@@ -23,6 +23,7 @@ class UsersTable(APIView):
 
 class UsersDelete(APIView):
     def delete(self, request, pk):
+        print(request)
         userObj = UserModel.objects.get(pk=pk)
         try:
             userObj = UserModel.objects.get(pk = pk)
