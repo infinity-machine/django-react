@@ -170,6 +170,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# if not IS_HEROKU:
-#     import django_on_heroku
-#     django_on_heroku.settings(locals())
+
+import django_on_heroku
+django_on_heroku.settings(locals())
