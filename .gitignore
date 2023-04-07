@@ -43,11 +43,11 @@ env/
 # Media and Static directories
 /media/
 !/media/.gitkeep
-
 /static/
 !/static/.gitkeep
+staticfiles
 
-#staticfiles
+# Node
 node_modules
 
 # Secrets
