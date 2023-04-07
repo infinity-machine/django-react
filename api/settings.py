@@ -1,5 +1,4 @@
 import dj_database_url
-# from django.test.runner import DiscoverRunner
 from pathlib import Path
 import os
 import django_on_heroku
