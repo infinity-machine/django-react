@@ -14,15 +14,12 @@ if not IS_HEROKU:
 
 if IS_HEROKU:
     SECRET_KEY = os.environ["SECRET_KEY"]
-else: SECRET_KEY = os.getenv('SECRET_KEY')
-
-if IS_HEROKU:
     DEBUG = False
-else: DEBUG = True
-
-if IS_HEROKU:
     ALLOWED_HOSTS = ['django-react-cjc.herokuapp.com']
-else: ALLOWED_HOSTS = ['*']
+else:
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    DEBUG = True
+    ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -71,9 +68,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 if IS_HEROKU:
     DATABASES = {
     'default': {
@@ -87,10 +81,6 @@ if IS_HEROKU:
     }
     db_from_env = dj_database_url.config(conn_max_age=600)
     DATABASES['default'].update(db_from_env)  
-
-    # Enable test database if found in CI environment.
-    # if "CI" in os.environ:
-    #     DATABASES["default"]["TEST"] = DATABASES["default"]
 
 else: DATABASES = {
     'default': {
@@ -133,14 +123,6 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
-# class HerokuDiscoverRunner(DiscoverRunner):
-#     """Test Runner for Heroku CI, which provides a database for you.
-#     This requires you to set the TEST database (done for you by settings().)"""
-
-#     def setup_databases(self, **kwargs):
-#         self.keepdb = True
-#         return super(HerokuDiscoverRunner, self).setup_databases(**kwargs)
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
