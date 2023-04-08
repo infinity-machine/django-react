@@ -12,7 +12,7 @@ if not IS_HEROKU:
     load_dotenv()
 
 if IS_HEROKU:
-    SECRET_KEY = os.environ["SECRET_KEY"]
+    SECRET_KEY = os.environ['SECRET_KEY']
     DEBUG = True
     ALLOWED_HOSTS = ['django-react-cjc.herokuapp.com']
 else:
